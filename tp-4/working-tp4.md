@@ -40,6 +40,8 @@ docker run --name tp4-postgres-ping -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecre
 docker network create tp4-network
 docker network connect tp4-network tp3-node-ping
 docker network connect tp4-network tp4-postgres-ping
+```
+
 
 # test
 ```
@@ -61,4 +63,10 @@ PING tp4-postgres-ping (172.19.0.3) 56(84) bytes of data.
 64 bytes from tp4-postgres-ping.tp4-network (172.19.0.3): icmp_seq=3 ttl=64 time=0.079 ms
 64 bytes from tp4-postgres-ping.tp4-network (172.19.0.3): icmp_seq=4 ttl=64 time=0.081 ms
 
+```
+
+Correction (associer au network au run)
+```
+docker run --name tp3-node-ping -d -p 8080:8080 --network tp4-network tp3-node:1.0.2-ping
+docker run --name tp4-postgres-ping -d -e POSTGRES_PASSWORD=mysecretpassword --network tp4-network tp4-postgres:1.0.0-ping
 ```
