@@ -1,0 +1,41 @@
+services:
+  web:
+    build:
+      context: ../
+      dockerfile: docker_03/Dockerfile
+    restart: always
+    container_name: tp7-web-mariadb   
+    environment:
+      - TZ=Europe/Paris
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - MYSQL_DB=basetp7
+    ports: 
+      - 3003:3000
+    volumes: 
+      - /home/formation/Documents/formation-docker/tp-7/log/web:/var/log/
+    depends_on: [db]
+    networks:
+      - tp7-mariadb-network
+
+  db:
+    image: mariadb
+    restart: always
+    container_name: tp7-mariadb
+    environment:
+      - TZ=Europe/Paris
+      - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_DATABASE=basetp7
+    ports:
+      - 3306:3306
+    volumes: 
+      - /home/formation/Documents/formation-docker/tp-7/docker_03/data:/var/lib/mysql:Z 
+      - /home/formation/Documents/formation-docker/tp-7/docker_03/backup:/backup
+      - /home/formation/Documents/formation-docker/tp-7/log/mariadb:/var/log/
+    networks:
+      - tp7-mariadb-network
+
+networks:
+  tp7-mariadb-network:    
+      

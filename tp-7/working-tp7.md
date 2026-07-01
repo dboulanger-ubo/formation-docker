@@ -23,10 +23,16 @@ docker_02
   
 ```
 cd tp-7/
-docker compose -f docker/docker-compose.yml up -d
+docker compose -f docker_02/docker-compose.yml up -d
 ```
 _Résultat OK_ : Todo App sur http://localhost:3001/
 
 
 docker_03
 - mariadb
+- solution 02 pour le web
+```
+cd tp-7/
+docker compose -f docker_03/docker-compose.yml up -d
+```
+  
