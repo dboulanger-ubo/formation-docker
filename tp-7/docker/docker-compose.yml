@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: "tp7-backend:${TAG_IMG_BACK}"
+    container_name: tp7-backend   
+    environment:
+      - TZ=Europe/Paris
+    ports: 
+      - 3000:3000
+    volumes: 
+      - vol_cli:/app/src/static/
+      - /home/formation/Documents/formation-docker/tp-7/log/backend/:/var/log/
+    depends_on: [client]
+
+  client:
+    image: "tp7-client:${TAG_IMG_FRONT}"
+    container_name: tp7-client    
+    environment:
+      - TZ=Europe/Paris
+    ports: 
+      - 5173:5173
+    volumes: 
+      - vol_cli:/app/dist
+      - /home/formation/Documents/formation-docker/tp-7/log/client/:/var/log/
+
+volumes:
+  vol_cli: 

@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: ../
+      dockerfile: docker_02/Dockerfile
+    container_name: tp7-web   
+    environment:
+      - TZ=Europe/Paris
+    ports: 
+      - 3001:3000
+    volumes: 
+      - /home/formation/Documents/formation-docker/tp-7/log/web:/var/log/
