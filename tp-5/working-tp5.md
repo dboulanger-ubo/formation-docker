@@ -32,20 +32,9 @@ ls -al docker/
 Test de reconstruction 
 ```
 docker rm -f tp5-postgres
-docker run --name tp5-postgres --env PGDATA=/var/lib/postgresql/17/docker --volume ./data:/var/lib/postgresql: -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
-
-
-formation@eiuta25:~/Documents/formation-docker/tp-5/postgres/data/17$ docker run --name tp5-postgres --env PGDATA=/var/lib/postgresql/17/docker --volume ./data:/var/lib/postgresql: -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
-docker: invalid spec: ./data:/var/lib/postgresql:: empty section between colons
-
-Run 'docker run --help' for more information
-formation@eiuta25:~/Documents/formation-docker/tp-5/postgres/data/17$ cd ../../
-formation@eiuta25:~/Documents/formation-docker/tp-5/postgres$ docker run --name tp5-postgres --env PGDATA=/var/lib/postgresql/17/docker --volume ./data:/var/lib/postgresql: -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
-docker: invalid spec: ./data:/var/lib/postgresql:: empty section between colons
-
-Run 'docker run --help' for more information
+docker run --name tp5-postgres --env PGDATA=/var/lib/postgresql/17/docker --volume ./data:/var/lib/postgresql -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
 ```
-
+_Résultat OK_ : la reconnexion à la base de donnée retrouve bien la tabe_test avec sa ligne renseignée
 
 node
 
