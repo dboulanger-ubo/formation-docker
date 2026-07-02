@@ -39,3 +39,13 @@ Identifier      cweijan.dbclient-jdbc
 Version         1.4.6
 Last Updated    34 minutes ago
 Size            16.02MB
+
+Dev Containers
+https://code.visualstudio.com/docs/devcontainers/containers
+Microsoft
+Installation
+Identifier      ms-vscode-remote.remote-containers
+Version         0.463.0
+Last Updated    55 minutes ago
+Size            6.68MB
+Cache           3.98KB
