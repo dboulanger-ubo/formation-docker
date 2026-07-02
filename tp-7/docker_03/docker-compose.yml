@@ -36,6 +36,19 @@ services:
     networks:
       - tp7-mariadb-network
 
+  dbadmin:
+    image: phpmyadmin
+    restart: always
+    container_name: tp7-mariadb-admin
+    environment:
+      - TZ=Europe/Paris
+      - PMA_ARBITRARY=1
+    ports:
+      - 8080:80
+    networks:
+      - tp7-mariadb-network
+
+
 networks:
   tp7-mariadb-network:    
       
