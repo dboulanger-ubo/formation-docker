@@ -20,8 +20,8 @@ ls -al docker/
 ```
 ls: impossible d'ouvrir le répertoire 'docker/': Permission non accordée
 
-=> répertpoire accessible que en root (protection)
-=> changer les droits sur le montage changerait aussi les droits sur container : mauvaise 
+=> répertoire accessible que en root (protection)
+=> changer les droits sur le montage changerait aussi les droits sur container : mauvaise idée
 
 
 ```
@@ -34,7 +34,7 @@ Test de reconstruction
 docker rm -f tp5-postgres
 docker run --name tp5-postgres --env PGDATA=/var/lib/postgresql/17/docker --volume ./data:/var/lib/postgresql -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
 ```
-_Résultat OK_ : la reconnexion à la base de donnée retrouve bien la tabe_test avec sa ligne renseignée
+_Résultat OK_ : la reconnexion à la base de donnée retrouve bien la table_test avec sa ligne renseignée
 
 node
 
@@ -67,6 +67,7 @@ Commandes
 ```
 docker build -t tp5-node:1.0.0 .
 docker run --name tp5-node -p 8080:8080 --volume ./volume:/app/src -d tp5-node:1.0.0
+# se placer à l'intérieur du docker : 
 docker exec -it tp5-node /bin/bash
 $ echo test > src/README.txt
 $ ls src/

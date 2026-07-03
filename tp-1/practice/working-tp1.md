@@ -71,5 +71,5 @@ docker run tp1-hello:latest "OK"
 _Résultat OK_ : Affiche "OK"
 
 - **ENTRYPOINT** : 1 seul, non modifiable
-- **CMD** : plusieurs possible, surchargeable
+- **CMD** : surchargeable
 
